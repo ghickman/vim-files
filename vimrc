@@ -1,6 +1,6 @@
 set nocompatible
 
-colorscheme railscasts
+colorscheme vwilight
 
 filetype plugin indent on " Enable plugin and indent file-type configs.
 syntax on
