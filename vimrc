@@ -44,14 +44,14 @@ au FileType php setlocal ts=4 sts=4 sw=4 expandtab
 au FileType python setlocal ts=4 sts=4 sw=4 expandtab
 
 " List settings, show tab and carriage return.
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\
 
 " Configure status line display.
 set statusline=%f\ (%{&ff})\ %y%m%r\ [%c,%l/%L]\ %P\ %#warningmsg#%{SyntasticStatuslineFlag()}%*
 " Always show the status line.
 set laststatus=2
 
-" Enable autocomplete for the languages I tend to work with.
+" Enable autocomplete for languages.
 au FileType python set omnifunc=pythoncomplete#Complete
 au FileType ruby,eruby set omnifunc=rubycomplete#Complete
 au FileType javascript set omnifunc=javascriptcomplete#CompleteJS
