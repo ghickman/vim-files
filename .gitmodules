@@ -55,6 +55,9 @@
 [submodule "bundle/pyflakes-vim"]
   path = bundle/pyflakes-vim
   url = https://github.com/kevinw/pyflakes-vim.git
+[submodule "bundle/simplenote"]
+  path = bundle/simplenote
+  url = https://github.com/mrtazz/simplenote.vim.git
 [submodule "bundle/nginx"]
 	path = bundle/nginx
 	url = https://github.com/vim-scripts/nginx.vim.git
