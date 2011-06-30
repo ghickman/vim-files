@@ -64,6 +64,3 @@
 [submodule "bundle/pyflakes-vim"]
     path = bundle/pyflakes-vim
     url = https://github.com/kevinw/pyflakes-vim.git
-[submodule "bundle/threesome"]
-    path = bundle/threesome
-    url = https://github.com/sjl/threesome.vim.git
