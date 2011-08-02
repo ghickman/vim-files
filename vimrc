@@ -68,9 +68,6 @@ vnoremap <F1> <ESC>
 " remap ; -> : to make commands easier to type
 nnoremap ; :
 
-" Save on lost focus
-au FocusLost * :wa
-
 " Show tabs
 set list
 set listchars=tab:▸\
