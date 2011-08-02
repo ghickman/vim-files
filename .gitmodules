@@ -13,9 +13,6 @@
 [submodule "bundle/haml"]
     path = bundle/haml
     url = https://github.com/vim-scripts/Haml.git
-[submodule "bundle/jslint"]
-    path = bundle/jslint
-    url = https://github.com/vim-scripts/jslint.vim.git
 [submodule "bundle/command-t"]
     path = bundle/command-t
     url = https://github.com/vim-scripts/Command-T.git
@@ -40,9 +37,6 @@
 [submodule "bundle/align"]
     path = bundle/align
     url = https://github.com/tsaleh/vim-align.git
-[submodule "bundle/syntastic"]
-    path = bundle/syntastic
-    url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/unimpaired"]
     path = bundle/unimpaired
     url = https://github.com/tpope/vim-unimpaired.git
