@@ -1,9 +1,6 @@
 [submodule "bundle/ack.vim"]
     path = bundle/ack.vim
     url = https://github.com/mileszs/ack.vim.git
-[submodule "bundle/nerd-commenter"]
-    path = bundle/nerd-commenter
-    url = https://github.com/vim-scripts/The-NERD-Commenter.git
 [submodule "bundle/nerd-tree"]
     path = bundle/nerd-tree
     url = https://github.com/vim-scripts/The-NERD-tree.git
@@ -13,9 +10,6 @@
 [submodule "bundle/haml"]
     path = bundle/haml
     url = https://github.com/vim-scripts/Haml.git
-[submodule "bundle/command-t"]
-    path = bundle/command-t
-    url = https://github.com/vim-scripts/Command-T.git
 [submodule "bundle/supertab"]
     path = bundle/supertab
     url = https://github.com/ervandew/supertab.git
@@ -31,18 +25,9 @@
 [submodule "bundle/markdown"]
     path = bundle/markdown
     url = https://github.com/tpope/vim-markdown.git
-[submodule "bundle/rails"]
-    path = bundle/rails
-    url = https://github.com/tpope/vim-rails.git
-[submodule "bundle/align"]
-    path = bundle/align
-    url = https://github.com/tsaleh/vim-align.git
 [submodule "bundle/unimpaired"]
     path = bundle/unimpaired
     url = https://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/simplenote"]
-    path = bundle/simplenote
-    url = https://github.com/ghickman/simplenote.vim
 [submodule "bundle/nginx"]
     path = bundle/nginx
     url = https://github.com/vim-scripts/nginx.vim.git
@@ -52,21 +37,18 @@
 [submodule "bundle/closetag"]
     path = bundle/closetag
     url = https://github.com/vim-scripts/closetag.vim.git
-[submodule "bundle/vim-mru"]
-    path = bundle/vim-mru
-    url = https://github.com/ornicar/vim-mru.git
 [submodule "bundle/pyflakes-vim"]
     path = bundle/pyflakes-vim
     url = https://github.com/kevinw/pyflakes-vim.git
 [submodule "bundle/threesome"]
-	path = bundle/threesome
-	url = https://github.com/sjl/threesome.vim.git
+    path = bundle/threesome
+    url = https://github.com/sjl/threesome.vim.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "bundle/jslint"]
-	path = bundle/jslint
-	url = https://github.com/hallettj/jslint.vim.git
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
+[submodule "bundle/vim-commentary"]
+	path = bundle/vim-commentary
+	url = git://github.com/tpope/vim-commentary.git

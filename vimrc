@@ -67,8 +67,8 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" remap ; -> : to make commands easier to type
-nnoremap ; :
+" map commenting
+nnoremap <localleader>c \\\
 
 " Backups
 set undodir=~/.vim/tmp/undo//     " undo files
