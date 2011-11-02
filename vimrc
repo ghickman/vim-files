@@ -2,7 +2,7 @@ set nocompatible
 
 colorscheme vwilight
 
-" Load plugins
+" LOAD PLUGINS
 if version >= 703
   filetype off
   call pathogen#runtime_append_all_bundles()
@@ -10,7 +10,14 @@ if version >= 703
   filetype plugin indent on
 endif
 
+" Remember last location in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
 set modelines=0
+
 
 " Tab settings.
 set nowrap
@@ -18,8 +25,8 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-
 set tw=0
+
 
 " Turn basics on
 set autoindent
@@ -37,7 +44,6 @@ set showmode
 set ttyfast
 set undofile
 set undoreload=10000
-"set visualbell
 set wildmenu
 set wildignore+=*.o,*.obj,.git,*.class,.hg,.pyc
 set wildmode=list:longest
@@ -67,8 +73,39 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" map commenting
-nnoremap <localleader>c \\\
+" Status Line
+set statusline=%f    " Path.
+set statusline+=%m   " Modified flag.
+set statusline+=%r   " Readonly flag.
+set statusline+=%w   " Preview window flag.
+
+set statusline+=\ \  " Space.
+
+set statusline+=%#warningmsg#                " Highlight the following as a warning.
+set statusline+=%{SyntasticStatuslineFlag()} " Syntastic errors.
+set statusline+=%*                           " Reset highlighting.
+
+set statusline+=%=   " Right align.
+
+" Line and column position and counts.
+set statusline+=\ (%L)\ %03l,%03c
+
+set statusline+=\ \  " Space.
+
+" Git
+set statusline+=%{fugitive#statusline()}
+
+set statusline+=\ \  " Space.
+
+" File format, encoding and type.  Ex: "(unix/utf-8/python)"
+set statusline+=%{&ff}                        " Format (unix/DOS).
+set statusline+=/
+set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
+set statusline+=/
+set statusline+=%{&ft}                        " Type (python).
+
+set statusline+=\ \  " Space.
+
 
 " Backups
 set undodir=~/.vim/tmp/undo//     " undo files
@@ -84,6 +121,15 @@ set listchars=tab:▸\
 au InsertEnter * hi StatusLine term=reverse ctermbg=5
 au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
 
+
+" MAPPINGS
+
+" Edit vimrc
+nnoremap <leader>ev <c-w>v:edit $MYVIMRC<cr>
+
+" Source vimrc
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
 " Sort!
 nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
 
@@ -92,6 +138,9 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Set filetype to htmldjango
 nnoremap <leader>sd :set ft=htmldjango<CR>
+
+" Add the two lines below to this one and get rid of the fucking spaces.
+nnoremap <leader>jl JxJxj<cr>
 
 " Searching.
 set hlsearch
@@ -107,33 +156,11 @@ au Filetype css setlocal iskeyword+=-
 " Dictionary words!
 :set dictionary=/usr/share/dict/words
 
-" Syntax error signs
-let g:syntastic_enable_signs=1
-let g:syntastic_disabled_filetypes=['javascript',]
-
 " More syntax highlighting for Python
 let python_highlight_all = 1
 
-" Keep a long history.
-
 " Backspace
 set backspace=indent,eol,start
-
-" NERDTree.
-map <leader>n :NERDTreeToggle<CR>
-map <leader>N :NERDTreeFind<CR>
-
-" Command-T.
-let g:CommandTMaxHeight=20
-
-" CTags
-map <leader>rt :!ctags --extra=+f -R *<CR><CR>
-
-" Remember last location in file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
-endif
 
 au FileType markdown setlocal wrap
 au FileType markdown map j gj
@@ -150,29 +177,6 @@ au BufRead,BufNewFile {requirements.txt} set ft=python
 
 " Smart indenting
 set smartindent cinwords=class,elif,else,except,def,finally,for,if,try,while
-
-" PHP highlight settings
-au FileType php let php_sql_query=1
-au FileType php let php_htmlInStrings=1
-
-" Mappings to expand the current path (edit, split, vsplit)
-map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
-map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
-map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
-map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
-
-" Highlight long lines - only care about this in Vim 7.3+ now
-if version >= 703
-  highlight ColorColumn ctermbg=lightgrey guibg=#464646
-  "set cc=+1 tw=80
-  " Provide a way to turn it off and on
-  nnoremap <Leader>l
-    \ :if &cc != '0'<Bar>
-    \   set cc=0<Bar>
-    \ else<Bar>
-    \   set cc=+5<Bar>
-    \ endif<CR>
-endif
 
 " Highlight trailing whitespace.
 hi link TrailingWhiteSpace Search
@@ -192,7 +196,26 @@ hi NonText ctermbg=NONE ctermfg=235 guifg=#424242 gui=NONE
 " hidden tab character
 hi SpecialKey ctermbg=NONE ctermfg=235 guifg=#424242 gui=NONE
 
+
+" PLUGIN SPECIFIC BITS
+" Command-T.
+let g:CommandTMaxHeight=20
+
+" Commenting
+nnoremap <localleader>c \\\
+
+" Gundo Toggle
+nnoremap <leader>u :GundoToggle<cr>
+
+" NERDTree.
+map <leader>n :NERDTreeToggle<CR>
+map <leader>N :NERDTreeFind<CR>
+
+" SimpleNote
 let g:SimpleNoteUserName = "george+simplenote@ghickman.co.uk"
 let g:SimpleNotePassword = "J62.DYN7a3{ni/=e"
 
-nnoremap <leader>u :GundoToggle<CR>
+" Syntax error signs
+let g:syntastic_enable_signs=1
+let g:syntastic_disabled_filetypes=['javascript',]
+
