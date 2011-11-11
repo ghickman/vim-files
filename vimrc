@@ -198,6 +198,9 @@ hi SpecialKey ctermbg=NONE ctermfg=235 guifg=#424242 gui=NONE
 
 
 " PLUGIN SPECIFIC BITS
+" Ack
+map <leader>a :Ack<space>
+
 " Command-T.
 let g:CommandTMaxHeight=20
 
