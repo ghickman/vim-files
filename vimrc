@@ -203,6 +203,7 @@ nnoremap <leader>jl JxJxj<cr>
 
 " Faster Esc
 inoremap jk <esc>
+inoremap JK <esc>
 
 " Emacs bindings in command line mode
 cnoremap <c-a> <home>
@@ -402,6 +403,7 @@ augroup ft_python
 
     au FileType python setlocal omnifunc=pythoncomplete#Complete
     au FileType python setlocal define=^\s*\\(def\\\\|class\\)
+    au FileType python setlocal foldnestmax=1
     " au FileType python compiler nose
     " au FileType man nnoremap <buffer> <cr> :q<cr>
 
