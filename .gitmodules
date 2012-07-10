@@ -6,10 +6,6 @@
     path = bundle/nerd-tree
     url = https://github.com/vim-scripts/The-NERD-tree.git
     ignore = untracked
-[submodule "bundle/surround"]
-    path = bundle/surround
-    url = https://github.com/vim-scripts/surround.vim.git
-    ignore = untracked
 [submodule "bundle/haml"]
     path = bundle/haml
     url = https://github.com/vim-scripts/Haml.git
@@ -83,3 +79,6 @@
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	url = git://github.com/tpope/vim-commentary.git
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = https://github.com/tpope/vim-surround.git
