@@ -26,10 +26,6 @@
     path = bundle/unimpaired
     url = https://github.com/tpope/vim-unimpaired.git
     ignore = untracked
-[submodule "bundle/autoclose"]
-    path = bundle/autoclose
-    url = https://github.com/vim-scripts/AutoClose--Alves.git
-    ignore = untracked
 [submodule "bundle/closetag"]
     path = bundle/closetag
     url = https://github.com/vim-scripts/closetag.vim.git
@@ -80,3 +76,7 @@
 [submodule "bundle/nginx"]
 	path = bundle/nginx
 	url = https://github.com/evanmiller/nginx-vim-syntax.git
+[submodule "bundle/autoclose"]
+	path = bundle/autoclose
+	url = https://github.com/Townk/vim-autoclose.git
+    ignore = untracked
