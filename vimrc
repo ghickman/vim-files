@@ -567,12 +567,6 @@ augroup END
 nnoremap <leader>u :GundoToggle<cr>
 
 " }}}
-" NERDTree {{{
-
-map <leader>n :NERDTreeToggle<CR>
-map <leader>N :NERDTreeFind<CR>
-
-" }}}
 " Powerline {{{
 
 let g:Powerline_colorscheme = 'solarized256'
