@@ -594,6 +594,7 @@ map <leader>N :NERDTreeFind<CR>
 " Powerline {{{
 
 let g:Powerline_colorscheme = 'solarized256'
+let g:Powerline_symbols = 'fancy'
 
 " }}}
 " Python Mode {{{
