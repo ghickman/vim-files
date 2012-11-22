@@ -522,6 +522,7 @@ map <leader>a :Ack<space>
 " CtrlP {{{
 
 let g:ctrlp_map = '<leader>t'
+let g:ctrlp_working_path_mode = 0
 
 " }}}
 " Commentary {{{
@@ -557,12 +558,6 @@ augroup END
 " Gundo {{{
 
 nnoremap <leader>u :GundoToggle<cr>
-
-" }}}
-" NERDTree {{{
-
-map <leader>n :NERDTreeToggle<CR>
-map <leader>N :NERDTreeFind<CR>
 
 " }}}
 " Powerline {{{
