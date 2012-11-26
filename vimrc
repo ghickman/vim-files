@@ -23,6 +23,7 @@ set encoding=utf-8
 set hidden
 set history=1000
 set laststatus=2
+set linebreak
 set list
 set listchars=tab:▸\ ,extends:❯,precedes:❮
 set modelines=0
@@ -39,6 +40,14 @@ set ttyfast
 set undofile
 set undoreload=10000
 
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
+" Time out on key codes but not mappings.
+set notimeout
+set ttimeout
+set ttimeoutlen=10
+
 " Wildmenu Completion ---------------------------------------------------- {{{
 
 set wildmenu
@@ -52,10 +61,6 @@ set wildignore+=*.DS_Store                               " OSX
 set wildignore+=*.pyc                                    " Python byte code
 
 " }}}
-
-" Resize splits when the window is resized
-au VimResized * exe "normal! \<c-w>="
-
 " Tabs, spacing, etc ----------------------------------------------------- {{{
 
 set nowrap
@@ -185,6 +190,11 @@ if has('gui_running')
         " Fullscreen takes up entire screen
         set fuoptions=maxhorz,maxvert
     end
+else
+    " Console vim
+
+    " Mouse support
+    set mouse=a
 end
 " }}}
 " Movement --------------------------------------------------------------- {{{
@@ -263,9 +273,6 @@ inoremap <s-cr> <esc>A:<cr>
 " Send visual selection to gist.github.com
 " Requires gist (brew install gist)
 vnoremap <leader>G :w !gist -p -t %:e \| pbcopy<cr>
-
-nnoremap <leader>s :Sscratch<cr>
-vnoremap <leader>s :Sscratch<cr>
 
 " Split/Join {{{
 "
@@ -623,6 +630,17 @@ let g:pymode_syntax_string_formatting = 1
 let g:pyflakes_use_quickfix = 0
 
 " }}}
+" Scratch {{{
+
+nnoremap <silent> <leader><tab> :Sscratch<cr>
+
+" }}}
+" SuperTab {{{
+
+let g:SuperTabDefaultCompletionType = "<c-p><c-n>"
+let g:SuperTabLongestHighlight = 1
+
+" }}}
 " Syntastic {{{
 
 let g:syntastic_enable_signs=1
@@ -637,6 +655,42 @@ let g:threesome_initial_mode = "grid"
 let g:threesome_wrap = "nowrap"
 
 " }}}
+
+" }}}
+" Pulse Line ------------------------------------------------------------- {{{
+
+function! s:Pulse() " {{{
+    let current_window = winnr()
+    windo set nocursorline
+    execute current_window . 'wincmd w'
+    setlocal cursorline
+
+    redir => old_hi
+        silent execute 'hi CursorLine'
+    redir END
+    let old_hi = split(old_hi, '\n')[0]
+    let old_hi = substitute(old_hi, 'xxx', '', '')
+
+    let steps = 9
+    let width = 1
+    let start = width
+    let end = steps * width
+    let color = 233
+
+    for i in range(start, end, width)
+        execute "hi CursorLine ctermbg=" . (color + i)
+        redraw
+        sleep 6m
+    endfor
+    for i in range(end, start, -1 * width)
+        execute "hi CursorLine ctermbg=" . (color + i)
+        redraw
+        sleep 6m
+    endfor
+
+    execute 'hi ' . old_hi
+endfunction " }}}
+command! -nargs=0 Pulse call s:Pulse()
 
 " }}}
 
