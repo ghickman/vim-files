@@ -524,7 +524,7 @@ augroup ft_vim
     au FileType help setlocal textwidth=78
 
     " Display help in a vsplit
-    " au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
 augroup END
 
 " }}}
