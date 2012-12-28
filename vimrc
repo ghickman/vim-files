@@ -617,6 +617,7 @@ let g:pymode_rope_sorted_completions = 1
 let g:pymode_rope_vim_completion = 1
 
 map <leader>g :call RopeGotoDefinition()<cr>
+map <tab> :call RopeCodeAssist()<cr>
 
 " Syntax Highlighting
 let g:pymode_syntax = 1
@@ -639,12 +640,6 @@ let g:pyflakes_use_quickfix = 0
 " Scratch {{{
 
 nnoremap <silent> <leader><tab> :Sscratch<cr>
-
-" }}}
-" SuperTab {{{
-
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabLongestHighlight = 1
 
 " }}}
 " Syntastic {{{
